@@ -1,0 +1,2 @@
+# store
+Central store
