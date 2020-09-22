@@ -179,7 +179,7 @@ class Store
 		//get sample region
 		this.setBounds(false);
 		//draw bounding boxes
-		this.drawRegion(this.state.bounds, true);
+		this.drawRegion(this.state.bounds, false);
 		//pendant
 		this.state.pendant = new fabric.Text(this.allfix,
 		{
