@@ -97,11 +97,11 @@ class Store
 	
 	setBounds(ok)
 	{	
-		this.state.pendant =  new fabric.Text(this.allfix,{fontFamily:"y_cname",fontSize:40,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex")),objectCaching:false});		
+		this.state.pendant =  new fabric.Text(this.allfix,{fontFamily:"cname",fontSize:40,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex")),objectCaching:false});		
 		this.canvas.add(this.state.pendant);
 		this.state.pendant.center();
 		this.state.bounds = this.state.pendant.getBoundingRect();
-		if(ok)this.canvas.remove(this.state.pendant);
+		if(!ok)this.canvas.remove(this.state.pendant);
 	}
 	
 	drawRegion(bnd, drew)
@@ -122,11 +122,6 @@ class Store
 			,top:bnd.top - this.state.options.width
 			,width:this.state.options.width
 			,height:this.state.options.width
-			
-			// left:bnd.left-this.state.options.width
-			// ,top:bnd.top - this.state.options.height 
-			// ,width:this.state.options.width
-			// ,height:this.state.options.height
 		});
 		lbox.fill="";
 		lbox.stroke="#f00";
@@ -179,7 +174,7 @@ class Store
 		//parse inputs
 		this.getAllTxt();
 		//get sample region
-		this.setBounds(false);
+		this.setBounds(true);
 		//draw bounding boxes
 		this.drawRegion(this.state.bounds, true);
 		// this.state.pendant
