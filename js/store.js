@@ -190,14 +190,14 @@ class Store
 			,selectable:false
 		}); 
 		this.canvas.add(this.state.pendant);
-		// //chain left
-		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
-		// {
-			// this.state.chainLeft = im;
-			// this.state.chainLeft.scaleToWidth(this.state.options.width);
-			// this.state.chainLeft.set({left:this.state.bounds.left-this.state.options.width-3,top:this.prefixMap(),objectCaching:false,selectable:false});
-			// if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
-		// });
+		//chain left
+		fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
+		{
+			this.state.chainLeft = im;
+			this.state.chainLeft.scaleToWidth(this.state.options.width);
+			this.state.chainLeft.set({left:this.state.bounds.left-this.state.options.width-3,top:this.prefixMap(),objectCaching:false,selectable:false});
+			if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
+		});
 		// //chain right
 		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
 		// {
