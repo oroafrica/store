@@ -215,19 +215,19 @@ class Store
 			// if(this.allfix !== "") this.canvas.add(this.activeGem);
 		// });
 		// //dynamic dropshadow
-		// this.dropShadow = new fabric.Circle(
-		// {
-			// shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.state.bounds.width * 0.5)
-			// ,left:this.canvas.width *0.5,top:this.canvas.height*0.9
-			// ,fill:"#efefef"
-			// ,originX:"center"
-			// ,originY:"center"
-			// ,scaleY:0.01
-			// ,objectCaching:false
-			// ,selectable:false
-		// });
-		// this.canvas.set
-		// this.canvas.add(this.dropShadow);
+		this.dropShadow = new fabric.Circle(
+		{
+			shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.state.bounds.width * 0.5)
+			,left:this.canvas.width *0.5,top:this.canvas.height*0.9
+			,fill:"#efefef"
+			,originX:"center"
+			,originY:"center"
+			,scaleY:0.01
+			,objectCaching:false
+			,selectable:false
+		});
+		this.canvas.set
+		this.canvas.add(this.dropShadow);
 
 	}
 	
