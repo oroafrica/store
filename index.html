@@ -21,8 +21,7 @@
 <body>
 	<div class="container-fluid text-center mt-5">
 		<div id="root" class="d-flex justify-content-center p-4">
-			<!-- <div class="bb shadow" id="b1"><canvas width="350px" height="250px"  class="border rounded" id="canvas" style="width:350px;height:250px" title="original outline">canvas not supported</canvas></div> -->
-			<div class="bb shadow" id="b1"><canvas  width="420px" height="250px" class="border rounded" id="canvas"  title="original outline">canvas not supported</canvas></div>
+			<div class="bb shadow" id="b1"><canvas width="420" height="250" class="border rounded" id="canvas"  title="original outline">canvas not supported</canvas></div>
 		</div>
 		
 		<div class="btn-group-vertical text-center mx-auto justify-content-spacing">
@@ -69,7 +68,7 @@
 Promise.all([fontA.load()]).then(function () {
   console.log('cname loaded');
 });
-	$(document).ready(new Store().render("480","250")); 
+	$(document).ready(new Store().render()); 
 </script>
 
 

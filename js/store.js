@@ -104,43 +104,48 @@ class Store
 		if(ok)this.canvas.remove(this.state.pendant);
 	}
 	
-	drawRegion(bounds, drew)
+	drawRegion(bnd, drew)
 	{		
 		if(!drew) return;
-		this.canvas.remove(this.state.debugGroup);
-		this.state.debugGroup = new fabric.Group([],{"selectable":false,objectCaching:false});
+		// this.canvas.remove(this.state.debugGroup);
+		// this.state.debugGroup = new fabric.Group([],{"selectable":false,objectCaching:false});
 		
-		let tbox = new fabric.Rect(bounds);
+		let tbox = new fabric.Rect(bnd);
 		tbox.fill="";
 		tbox.stroke="#0f0";
 		tbox.strokeWidth=0.25;
-		this.state.debugGroup.addWithUpdate(tbox);	
+		this.canvas.add(tbox);	
 		
 		let lbox = new fabric.Rect(
 		{
-			left:bounds.left-this.state.options.width
-			,top:bounds.top - this.state.options.height 
+			left:bnd.left - this.state.options.width
+			,top:bnd.top - this.state.options.width
 			,width:this.state.options.width
-			,height:this.state.options.height
+			,height:this.state.options.width
+			
+			// left:bnd.left-this.state.options.width
+			// ,top:bnd.top - this.state.options.height 
+			// ,width:this.state.options.width
+			// ,height:this.state.options.height
 		});
 		lbox.fill="";
 		lbox.stroke="#f00";
 		lbox.strokeWidth=0.25;
-		this.state.debugGroup.addWithUpdate(lbox);	
+		this.canvas.add(lbox);	
 		
 		let rbox = new fabric.Rect(
 		{
-			left:bounds.width + bounds.left
-			,top:bounds.top - this.state.options.height
+			left:bnd.width + bnd.left
+			,top:bnd.top - this.state.options.width
 			,width:this.state.options.width
-			,height:this.state.options.height
+			,height:this.state.options.width
 		});
 		rbox.fill="";
 		rbox.stroke="#00f";
 		rbox.strokeWidth=0.25;
-		this.state.debugGroup.addWithUpdate(rbox);	
+		this.canvas.add(rbox);	
 		
-		this.canvas.add(this.state.debugGroup);
+		// this.canvas.add(this.state.debugGroup);
 	}
 	
 	prefixMap()
@@ -174,58 +179,60 @@ class Store
 		//parse inputs
 		this.getAllTxt();
 		//get sample region
-		this.setBounds(true);
+		this.setBounds(false);
 		//draw bounding boxes
 		this.drawRegion(this.state.bounds, true);
 		// this.state.pendant
-		this.state.pendant = new fabric.Text(this.allfix,
-		{
-			fontFamily:"cname"
-			,fontSize:40
-			,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex"))
-			,objectCaching:false 
-			,left:this.state.bounds.left
-			,top:this.state.bounds.top
-			,shadow:`${this.shadow($(this.uAlloy).prop("selectedIndex"))} -1 -1 0`
-			,selectable:false
-		}); 
-		this.canvas.add(this.state.pendant);
-		//chain left
-		fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
-		{
-			this.state.chainLeft = im;
-			this.state.chainLeft.scaleToWidth(this.state.options.width);
-			this.state.chainLeft.set({left:this.state.bounds.left-this.state.options.width-3,top:this.prefixMap(),objectCaching:false,selectable:false});
-			if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
-		});
-		//chain right
-		fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
-		{
-			this.state.chainRight = im;
-			this.state.chainRight.scaleToWidth(this.state.options.width);
-			this.state.chainRight.set({left:this.state.bounds.left+this.state.bounds.width+3,top:this.suffixMap(),objectCaching:false,flipX:true,selectable:false});
-			if(this.allfix !== "") this.canvas.add(this.state.chainRight);
-		});
-		//accent
-		fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
-		{
-			this.activeGem = im;
-			this.activeGem.scaleToWidth(15);
-			this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,objectCaching:false,noScaleCache:false});
-			if(this.allfix !== "") this.canvas.add(this.activeGem);
-		});
-		//dynamic dropshadow
-		this.dropShadow = new fabric.Circle(
-		{
-			shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.state.bounds.width * 0.5)
-			,left:this.canvas.width *0.5,top:this.canvas.height*0.9
-			,fill:"#efefef"
-			,originX:"center"
-			,originY:"center"
-			,scaleY:0.01
-			,objectCaching:false
-		});
-		this.canvas.add(this.dropShadow);
+		// this.state.pendant = new fabric.Text(this.allfix,
+		// {
+			// fontFamily:"cname"
+			// ,fontSize:40
+			// ,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex"))
+			// ,objectCaching:false 
+			// ,left:this.state.bounds.left
+			// ,top:this.state.bounds.top
+			// ,shadow:`${this.shadow($(this.uAlloy).prop("selectedIndex"))} -1 -1 0`
+			// ,selectable:false
+		// }); 
+		// this.canvas.add(this.state.pendant);
+		// //chain left
+		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
+		// {
+			// this.state.chainLeft = im;
+			// this.state.chainLeft.scaleToWidth(this.state.options.width);
+			// this.state.chainLeft.set({left:this.state.bounds.left-this.state.options.width-3,top:this.prefixMap(),objectCaching:false,selectable:false});
+			// if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
+		// });
+		// //chain right
+		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
+		// {
+			// this.state.chainRight = im;
+			// this.state.chainRight.scaleToWidth(this.state.options.width);
+			// this.state.chainRight.set({left:this.state.bounds.left+this.state.bounds.width+3,top:this.suffixMap(),objectCaching:false,flipX:true,selectable:false});
+			// if(this.allfix !== "") this.canvas.add(this.state.chainRight);
+		// });
+		// //accent
+		// fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
+		// {
+			// this.activeGem = im;
+			// this.activeGem.scaleToWidth(15);
+			// this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,objectCaching:false,noScaleCache:false});
+			// if(this.allfix !== "") this.canvas.add(this.activeGem);
+		// });
+		// //dynamic dropshadow
+		// this.dropShadow = new fabric.Circle(
+		// {
+			// shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.state.bounds.width * 0.5)
+			// ,left:this.canvas.width *0.5,top:this.canvas.height*0.9
+			// ,fill:"#efefef"
+			// ,originX:"center"
+			// ,originY:"center"
+			// ,scaleY:0.01
+			// ,objectCaching:false
+			// ,selectable:false
+		// });
+		// this.canvas.set
+		// this.canvas.add(this.dropShadow);
 
 	}
 	
