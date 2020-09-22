@@ -174,22 +174,22 @@ class Store
 		//parse inputs
 		this.getAllTxt();
 		//get sample region
-		this.setBounds(true);
+		this.setBounds(false);
 		//draw bounding boxes
 		this.drawRegion(this.state.bounds, true);
-		// this.state.pendant
-		// this.state.pendant = new fabric.Text(this.allfix,
-		// {
-			// fontFamily:"cname"
-			// ,fontSize:40
-			// ,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex"))
-			// ,objectCaching:false 
-			// ,left:this.state.bounds.left
-			// ,top:this.state.bounds.top
-			// ,shadow:`${this.shadow($(this.uAlloy).prop("selectedIndex"))} -1 -1 0`
-			// ,selectable:false
-		// }); 
-		// this.canvas.add(this.state.pendant);
+		//pendant
+		this.state.pendant = new fabric.Text(this.allfix,
+		{
+			fontFamily:"cname"
+			,fontSize:40
+			,fill:this.alloyColor($(this.uAlloy).prop("selectedIndex"))
+			,objectCaching:false 
+			,left:this.state.bounds.left
+			,top:this.state.bounds.top
+			,shadow:`${this.shadow($(this.uAlloy).prop("selectedIndex"))} -1 -1 0`
+			,selectable:false
+		}); 
+		this.canvas.add(this.state.pendant);
 		// //chain left
 		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
 		// {
