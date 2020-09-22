@@ -210,13 +210,13 @@ class Store
 			if(this.allfix !== "") this.canvas.add(this.state.chainRight);
 		});
 		// //accent
-		// fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
-		// {
-			// this.activeGem = im;
-			// this.activeGem.scaleToWidth(15);
-			// this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,objectCaching:false,noScaleCache:false});
-			// if(this.allfix !== "") this.canvas.add(this.activeGem);
-		// });
+		fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
+		{
+			this.activeGem = im;
+			this.activeGem.scaleToWidth(15);
+			this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,objectCaching:false,noScaleCache:false});
+			if(this.allfix !== "") this.canvas.add(this.activeGem);
+		});
 		// //dynamic dropshadow
 		this.dropShadow = new fabric.Circle(
 		{
