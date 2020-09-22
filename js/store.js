@@ -111,6 +111,7 @@ class Store
 		// this.state.debugGroup = new fabric.Group([],{"selectable":false,objectCaching:false});
 		
 		let tbox = new fabric.Rect(bnd);
+		tbox.set({selectable:false})
 		tbox.fill="";
 		tbox.stroke="#0f0";
 		tbox.strokeWidth=0.25;
@@ -122,6 +123,7 @@ class Store
 			,top:bnd.top - this.state.options.width
 			,width:this.state.options.width
 			,height:this.state.options.width
+			,selectable:false
 		});
 		lbox.fill="";
 		lbox.stroke="#f00";
@@ -134,6 +136,7 @@ class Store
 			,top:bnd.top - this.state.options.width
 			,width:this.state.options.width
 			,height:this.state.options.width
+			,selectable:false
 		});
 		rbox.fill="";
 		rbox.stroke="#00f";
@@ -199,13 +202,13 @@ class Store
 			if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
 		});
 		// //chain right
-		// fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
-		// {
-			// this.state.chainRight = im;
-			// this.state.chainRight.scaleToWidth(this.state.options.width);
-			// this.state.chainRight.set({left:this.state.bounds.left+this.state.bounds.width+3,top:this.suffixMap(),objectCaching:false,flipX:true,selectable:false});
-			// if(this.allfix !== "") this.canvas.add(this.state.chainRight);
-		// });
+		fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
+		{
+			this.state.chainRight = im;
+			this.state.chainRight.scaleToWidth(this.state.options.width);
+			this.state.chainRight.set({left:this.state.bounds.left+this.state.bounds.width+3,top:this.suffixMap(),objectCaching:false,flipX:true,selectable:false});
+			if(this.allfix !== "") this.canvas.add(this.state.chainRight);
+		});
 		// //accent
 		// fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
 		// {
