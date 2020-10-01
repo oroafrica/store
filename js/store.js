@@ -215,7 +215,11 @@ class Store
 			this.activeGem = im;
 			this.activeGem.scaleToWidth(15);
 			this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,objectCaching:false,noScaleCache:false});
-			if(this.allfix !== "") this.canvas.add(this.activeGem);
+			if(this.allfix !== "") 
+			{
+				this.canvas.add(this.activeGem);
+				this.activeGem.animate("angle",360,{from:0,duration:1000,onChange:this.canvas.renderAll.bind(this.canvas)});
+			}
 		});
 		// //dynamic dropshadow
 		this.dropShadow = new fabric.Circle(
@@ -232,7 +236,7 @@ class Store
 		this.canvas.set
 		this.canvas.add(this.dropShadow);
 		
-		this.activeGem.animate("angle",360,{from:0,duration:1000,onChange:this.canvas.renderAll.bind(this.canvas)});
+		
 	}
 	
 	debug()
