@@ -218,6 +218,7 @@ class Store
 			if(this.allfix !== "") 
 			{
 				this.canvas.add(this.activeGem);
+				this.activeGem.set({originX:"center",originY:"center"});
 				this.activeGem.animate("angle",360,{from:0,duration:1000,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
