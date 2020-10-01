@@ -231,7 +231,8 @@ class Store
 		});
 		this.canvas.set
 		this.canvas.add(this.dropShadow);
-
+		
+		this.activeGem.animate("angle",360,{from:0,duration:1000,onChange:this.canvas.renderAll.bind(this.canvas)});
 	}
 	
 	debug()
