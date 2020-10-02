@@ -150,7 +150,7 @@ class Store
 	
 	suffixMap()
 	{
-		let mp = {0:-129, 1:-121, 2:-127, 3:-120, 4:-121,5:-121,6:-127,7:-120};
+		let mp = {0:-127, 1:-121, 2:-127, 3:-120, 4:-121,5:-121,6:-127,7:-120};
 		return ($(this.uAccent).prop("selectedIndex") === 0) ? Object.values(mp)[$(this.uMotif).prop("selectedIndex")] : Object.values(mp)[$(this.uMotif).prop("selectedIndex")+4];
 	}
 	
@@ -158,8 +158,8 @@ class Store
 	{
 		let radius = this.gemRadius;
 		let z = this.state.bounds.width+this.state.bounds.left;
-		let gx = {0:0, 1:0, 2:0, 3:0, 4:122+radius,5:120+radius,6:116+radius,7:115+radius};
-		let gy = {0:0, 1:0, 2:0, 3:0, 4:(z-16+radius),5:(z-26+radius),6:(z-19+radius),7:(z-28+radius)};
+		let gx = {0:0, 1:0, 2:0, 3:0, 4:122+radius,5:119+radius,6:117+radius,7:115+radius};
+		let gy = {0:0, 1:0, 2:0, 3:0, 4:(z-15+radius),5:(z-22+radius),6:(z-17+radius),7:(z-25+radius)};
 		let tg = $(this.uMotif).prop("selectedIndex");
 		return ($(this.uAccent).prop("selectedIndex") === 0) ? {y:Object.values(gx)[tg],x:Object.values(gy)[tg]} : {y:Object.values(gx)[tg+4],x:Object.values(gy)[tg+4]};
 	}
@@ -177,7 +177,7 @@ class Store
 		//get sample region
 		this.setBounds(false);
 		//draw bounding boxes
-		this.drawRegion(this.state.bounds, true);
+		this.drawRegion(this.state.bounds, false);
 		//pendant
 		this.state.pendant = new fabric.Text(this.allfix,
 		{
