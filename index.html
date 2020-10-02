@@ -1,5 +1,5 @@
 <head>
-<title>live mname</title>
+<title>live cname</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -51,8 +51,8 @@
 		<!-- <h5 id="h" class="fixed-bottom mb-5" style="font-family:'cname'">dd</h5> -->
 	</div>
 
-<script src="js/cname.js" ></script>
-<script src="js/fontFaceObserver.js" ></script>
+<script src="./js/cname.js" ></script>
+<script src="./js/fontFaceObserver.js" ></script>
 <script >
 	let cFonts = [new FontFaceObserver('cname'),new FontFaceObserver('bname'),new FontFaceObserver('mname')];
 	Promise.all(cFonts).then(()=>{console.log('fonts loaded');});
