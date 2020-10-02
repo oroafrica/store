@@ -12,7 +12,7 @@ class Store
 		this.uAccent;
 		this.w = 420;
 		this.h = 250;
-		this.fontName = "cname";		
+		this.fontName = "mname";		
 		this.fontSize = 35;
 		this.gemSize = 14;
 		this.gemRadius = this.gemSize/2;
@@ -152,14 +152,12 @@ class Store
 	prefixMap()
 	{
 		let sub = $(this.uTxt).val();
-		console.log(sub.length > 0 && sub.substr(0,1) === sub.substr(0,1).toLowerCase());
-		// return (sub.length > 0 && sub.substr(0,1) === sub.substr(0,1).toLowerCase()) ? -127 : -145; 
-		return (sub.length > 0 && sub.substr(0,1).match(/[a-z]/g)) ? -125 : -142;
+		return (sub.length > 0 && sub.substr(0,1).match(/[a-z]/g)) ? -119 : -118;
 	}
 	
 	suffixMap()
 	{
-		let mp = {0:-127, 1:-120, 2:-126, 3:-119, 4:-120,5:-120,6:-126,7:-119}; //{0:-129, 1:-121, 2:-127, 3:-120, 4:-121,5:-121,6:-127,7:-120};
+		let mp = {0:-119, 1:-119, 2:-119, 3:-119, 4:-119,5:-119,6:-119,7:-119};
 		return ($(this.uAccent).prop("selectedIndex") === 0) ? Object.values(mp)[$(this.uMotif).prop("selectedIndex")] : Object.values(mp)[$(this.uMotif).prop("selectedIndex")+4];
 	}
 	
@@ -167,8 +165,8 @@ class Store
 	{
 		let radius = this.gemRadius;
 		let z = this.state.bounds.width+this.state.bounds.left;
-		let gx = {0:0, 1:0, 2:0, 3:0, 4:122+radius,5:120+radius,6:117+radius,7:116+radius}; //{0:0, 1:0, 2:0, 3:0, 4:122+radius,5:120+radius,6:116+radius,7:115+radius};
-		let gy = {0:0, 1:0, 2:0, 3:0, 4:(z-15+radius),5:(z-24+radius),6:(z-17+radius),7:(z-26+radius)};//{0:0, 1:0, 2:0, 3:0, 4:(z-16+radius),5:(z-26+radius),6:(z-19+radius),7:(z-28+radius)};
+		let gx = {0:0, 1:0, 2:0, 3:0, 4:124+radius,5:124+radius,6:123+radius,7:121+radius};
+		let gy = {0:0, 1:0, 2:0, 3:0, 4:(radius+z-13),5:(z+radius-20),6:(z+radius-16),7:(z+radius-21)};
 		let tg = $(this.uMotif).prop("selectedIndex");
 		return ($(this.uAccent).prop("selectedIndex") === 0) ? {y:Object.values(gx)[tg],x:Object.values(gy)[tg]} : {y:Object.values(gx)[tg+4],x:Object.values(gy)[tg+4]};
 	}
