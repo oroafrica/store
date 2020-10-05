@@ -1,1 +1,3 @@
-resoures: images
+resources: images,alloy,shadow
+scriptName:b/c/mname exe
+nameConfigure: style properties
