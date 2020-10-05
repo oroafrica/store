@@ -36,7 +36,7 @@ export class Store
 
 	render()
 	{	
-		$(document).on("keyup",$(inputs.user.txt1),(e)=>
+		$(document).on("keyup",$(inputs().user.txt1),(e)=>
 		{
 			
 			this.draw();
