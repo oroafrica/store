@@ -4,7 +4,7 @@ class Store
 {
 	constructor()
 	{
-		this.dev = false;
+		this.dev = true;
 		
 		this.uTxt;
 		this.uAlloy;
@@ -20,7 +20,7 @@ class Store
 
 		this.alloyColor = (a)=> {return Object.values({"None":"#BABABA","Silver":"#BABABA", "9k Yellow Gold":"#E0B97F", "9k Rose Gold":"#DDB8A9", "9k White Gold":"#C0C0C0"})[a]};
 	    this.shadow = (a)=> {return Object.values({"None":"#808080","Silver":"#808080", "9k Yellow Gold":"#AB8854", "9k Rose Gold":"#BA9282", "9k White Gold":"#808080"})[a]};
-	    this.accent = (a)=> { //a = (a>0) ? a : 1; 
+	    this.accent = (a)=> {
 			return Object.values(
 			{
 			"blank":""
@@ -93,7 +93,7 @@ class Store
 		_input = this.regex(_input.split(" ").join(""));
 		let _suffix = ($(this.uAccent).prop("selectedIndex") === 0) ? this.suffix($(this.uMotif).prop("selectedIndex")) : this.suffix($(this.uMotif).prop("selectedIndex") + 4);
 		
-		this.allfix = (_input.length > 0) ? this.prefix(_input) + this.infix(_input) + _suffix : this.allfix = "";
+		this.allfix = (_input.length > 0) ? this.prefix(_input) + this.infix(_input) + _suffix : "";
 	}
 	
 	setBounds(ok)
@@ -166,10 +166,10 @@ class Store
 	
 	draw()
 	{
-		this.debug();
+		
 		//refresh canvas
 		this.canvas.clear();
-		this.canvas.set({backgroundColor:"rgba(231,245,249,0.8)",hoverCursor:"pointer"});
+		this.canvas.set({backgroundColor:"rgba(231,245,249,0.8)",hoverCursor:"default"});
 		//scrape inputs
 		this.getSelectors();
 		//parse inputs
@@ -179,6 +179,7 @@ class Store
 		//draw bounding boxes
 		this.drawRegion(this.state.bounds, false);
 		//pendant
+		
 		this.state.pendant = new fabric.Text(this.allfix,
 		{
 			fontFamily:"cname"
@@ -199,7 +200,7 @@ class Store
 			this.state.chainLeft.set({left:this.state.bounds.left-this.state.options.width-3,top:this.prefixMap(),objectCaching:false,selectable:false});
 			if(this.allfix !== "") this.canvas.add(this.state.chainLeft);
 		});
-		// //chain right
+		//chain right
 		fabric.Image.fromURL(this.chainColor($(this.uAlloy).prop("selectedIndex")),(im)=>
 		{
 			this.state.chainRight = im;
@@ -207,7 +208,9 @@ class Store
 			this.state.chainRight.set({left:this.state.bounds.left+this.state.bounds.width+3,top:this.suffixMap(),objectCaching:false,flipX:true,selectable:false});
 			if(this.allfix !== "") this.canvas.add(this.state.chainRight);
 		});
-		// //accent
+		
+		
+		//accent
 		fabric.Image.fromURL(this.accent($(this.uAccent).prop("selectedIndex")),(im)=>
 		{
 			this.activeGem = im;
@@ -220,7 +223,7 @@ class Store
 				this.activeGem.animate("angle",360,{from:0,duration:1800,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
-		// //dynamic dropshadow
+		//dynamic dropshadow
 		this.dropShadow = new fabric.Circle(
 		{
 			shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.state.bounds.width * 0.5)
@@ -232,10 +235,10 @@ class Store
 			,objectCaching:false
 			,selectable:false
 		});
-		this.canvas.set
+	
 		this.canvas.add(this.dropShadow);
-		
-		
+		/**/
+		this.debug();
 	}
 	
 	debug()
@@ -249,6 +252,7 @@ class Store
 			,"userAccent":$(this.uAccent).prop("selectedIndex")
 			,"userText":this.allfix
 			,"bounds":this.state.bounds
+			,"sampleTextSize":this.state.bounds.width.toFixed(1)
 		};
 		if(this.dev) console.log(JSON.stringify(entries));
 	}
