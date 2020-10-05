@@ -1,4 +1,4 @@
-export config={
+export const config={
 global:{screen:"rgba(231,245,249,0.8)",chainWidth:240,cw:420,ch:250}
 ,bname:{fontName:"cname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000}
 ,cname:{fontName:"cname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000}
