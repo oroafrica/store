@@ -22,6 +22,7 @@ export class Store
 	{
 		this.msg("Hello name store");
 		this.msg($(inputs().user.txt1).val());
+		this.msg($(inputs.user.txt1).val());
 	}
 	setBounds(ok)
 	{	
@@ -35,7 +36,7 @@ export class Store
 
 	render()
 	{	
-		$(document).on("keyup",$(inputs.txt1),(e)=>
+		$(document).on("keyup",$(inputs.user.txt1),(e)=>
 		{
 			
 			this.draw();
