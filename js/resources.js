@@ -32,6 +32,6 @@ export const res={
 		})[a];
 	}
 	,alloy:(a)=> {return Object.values({"None":"#BABABA","Silver":"#BABABA", "9k Yellow Gold":"#E0B97F", "9k Rose Gold":"#DDB8A9", "9k White Gold":"#C0C0C0"})[a]}
-	,shadow = (a)=> {return Object.values({"None":"#808080","Silver":"#808080", "9k Yellow Gold":"#AB8854", "9k Rose Gold":"#BA9282", "9k White Gold":"#808080"})[a]}
+	,shadow:(a)=> {return Object.values({"None":"#808080","Silver":"#808080", "9k Yellow Gold":"#AB8854", "9k Rose Gold":"#BA9282", "9k White Gold":"#808080"})[a]}
 }
 
