@@ -1,5 +1,3 @@
-import {"accents"} from "accents.js";
-
 export function test()
 {
 	console.log("hi from test");
