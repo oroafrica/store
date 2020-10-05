@@ -1,4 +1,4 @@
-import {"accents"} from "./accents.jsm";
+import {"accents"} from "./accents.js";
 
 export function test()
 {
