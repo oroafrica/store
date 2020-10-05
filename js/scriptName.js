@@ -8,7 +8,7 @@ export class Store
 		//boolean
 		this.dev=true;
 		this.canvas = new fabric.Canvas('canvas',{backgroundColor:"rgba(231,245,249,0.8)",width:config.global.cw,height:config.global.ch,objectCaching:false});
-		
+		this.user = inputs();
 		this.pendant;
 	
 	}
@@ -23,6 +23,8 @@ export class Store
 		this.msg("Hello name store");
 		this.msg($(inputs().user.txt1).val());
 		this.msg($(inputs.user.txt1).val());
+		this.msg($(this.user.txt1).val());
+		
 	}
 	setBounds(ok)
 	{	
