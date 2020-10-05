@@ -21,9 +21,10 @@ export class Store
 	debug()
 	{
 		this.msg("Hello name store");
-		// this.msg($(inputs().user.txt1).val());
-		// this.msg($(inputs.user.txt1).val());
-		this.msg($(this.user.txt1).val());
+		this.msg($(this.user.txt1).prop("selectedIndex"));
+		this.msg($(this.user.alloy).prop("selectedIndex"));
+		this.msg($(this.user.motif).prop("selectedIndex"));
+		this.msg($(this.user.accent).prop("selectedIndex"));
 		
 	}
 	setBounds(ok)
