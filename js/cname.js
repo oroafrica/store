@@ -215,12 +215,13 @@ class Store
 		{
 			this.activeGem = im;
 			this.activeGem.scaleToWidth(14);
-			this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false});
+			this.activeGem.set({left:this.gemMap().x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
+			,shadow:"rgba(0,0,0,1) 0 0 2"});
 			if(this.allfix !== "") 
 			{
 				this.canvas.add(this.activeGem);
 				this.activeGem.set({});
-				this.activeGem.animate("angle",360,{from:0,duration:1800,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
+				this.activeGem.animate("angle",720,{from:0,duration:3600,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
 		//dynamic dropshadow
