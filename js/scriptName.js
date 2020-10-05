@@ -31,21 +31,18 @@ export class Store
 	{
 		
 	}
-	
+
 	render()
-	{
-		render()
-		{	
-			$(document).on("keyup",$(this.uTxt),(e)=>
-			{
-				this.draw();
-				this.debug();
-			})
-			.on("change",$(this.uAlloy),(e)=>
-			{
-				this.draw();
-				this.debug();
-			});
-		}
+	{	
+		$(document).on("keyup",$(this.uTxt),(e)=>
+		{
+			this.draw();
+			this.debug();
+		})
+		.on("change",$(this.uAlloy),(e)=>
+		{
+			this.draw();
+			this.debug();
+		});
 	}
 }
