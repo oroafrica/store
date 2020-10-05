@@ -34,4 +34,4 @@ const res =
 	};
 }
 
-module.exports{res}
+module.exports = {res}
