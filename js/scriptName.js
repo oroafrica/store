@@ -34,13 +34,13 @@ export class Store
 
 	render()
 	{	
-		$(document).on("keyup",$(user.txt1),(e)=>
+		$(document).on("keyup",$(inputs.txt1),(e)=>
 		{
-			
+			this.msg($(inputs.txt1).val());
 			this.draw();
 			this.debug();
 		})
-		.on("change",$(user.alloy),(e)=>
+		.on("change",$(inputs.alloy),(e)=>
 		{
 			this.draw();
 			this.debug();
