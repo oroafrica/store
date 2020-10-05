@@ -21,8 +21,8 @@ export class Store
 	debug()
 	{
 		this.msg("Hello name store");
-		this.msg($(inputs().user.txt1).val());
-		this.msg($(inputs.user.txt1).val());
+		// this.msg($(inputs().user.txt1).val());
+		// this.msg($(inputs.user.txt1).val());
 		this.msg($(this.user.txt1).val());
 		
 	}
@@ -38,13 +38,13 @@ export class Store
 
 	render()
 	{	
-		$(document).on("keyup",$(inputs().user.txt1),(e)=>
+		$(document).on("keyup",$(this.user.txt1),(e)=>
 		{
 			
 			this.draw();
 			this.debug();
 		})
-		.on("change",$(inputs.alloy),(e)=>
+		.on("change",$(this.user.alloy),(e)=>
 		{
 			this.draw();
 			this.debug();
