@@ -49,7 +49,6 @@
 		</div>
 		
 	<h5 id="h" class="fixed-bottom mb-5 invisible" style="font-family:'cname'">dd</h5>
-	<a href="multiStore.html">multi</a>
 	</div>
 
 <script src="./js/fontFaceObserver.js" ></script>
@@ -57,12 +56,11 @@
 <script >
 	var fonts = [new FontFaceObserver('cname')];
 	Promise.all(fonts).then(()=>{console.log('fonts loaded');});
-	<!-- $(document).ready(new Store().render());  -->
 </script>
 
 <script type="module" >
 	import {res} from "./js/_res.js";
-	console.log(JSON.stringify(res.chains(1)));
+	console.log(JSON.stringify(res));
 </script>
 
 </body>
