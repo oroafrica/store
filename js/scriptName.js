@@ -141,7 +141,7 @@ export class Store
 			if(this.allfix !== "") 
 			{
 				this.canvas.add(im);
-				this.activeGem.animate("angle",720,
+				im.animate("angle",720,
 				{from:0,duration:3600,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
