@@ -136,7 +136,7 @@ export class Store
 		fabric.Image.fromURL(res.accent($(this.user.accent).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.gemSize);
-			im.set({left:this.gemMap().x,top:150,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
+			im.set({left:this.gemMap().x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
 			,shadow:"rgba(0,0,0,1) 0 0 2"});
 			if(this.allfix !== "") 
 			{
@@ -145,13 +145,27 @@ export class Store
 				{from:0,duration:3600,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
+
+		this.dropShadow = new fabric.Circle(
+			{
+				shadow:"rgba(0,0,0,1) 1 1 10",opacity:0.2,radius:(this.item.bounds.width * 0.5)
+				,left:this.con.cw *0.5
+				,top:this.con.ch*0.9
+				,fill:"#efefef"
+				,originX:"center"
+				,originY:"center"
+				,scaleY:0.01
+				,objectCaching:false
+				,selectable:false
+			});
+		
+			this.canvas.add(this.dropShadow);
 	}
 
 	render()
 	{	
 		$(document).on("keyup",$(this.user.txt1),(e)=>
 		{
-			
 			this.draw();
 			this.debug();
 		})
