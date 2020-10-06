@@ -7,7 +7,7 @@ export class Store
 	{
 		//boolean
 		this.dev=true;
-		this.renderBounds=true;
+		this.renderBounds=false;
 		this.con = config[myStyle.toLowerCase()];  
 		this.canvas = new fabric.Canvas('canvas',{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
@@ -86,8 +86,9 @@ export class Store
 			,strokeWidth:0.25
 		});
 
-		this.canvas.add(aBox).add(bBox).add(cBox);
+		if(this.renderBounds) this.canvas.add(aBox).add(bBox).add(cBox);
 	}
+
 
 	draw()
 	{
@@ -96,6 +97,20 @@ export class Store
 		this.getUserInput();
 		this.setBounds();
 		this.drawRegion(this.item.bounds);
+
+		this.item.pendant =  new fabric.Text(this.allfix,
+			{
+				fontFamily:this.con.fontName
+				,fontSize:this.con.fontSize
+				,fill:res.alloy($(this.user.alloy).prop("selectedIndex"))
+				,left:this.item.left
+				,top:this.item.top
+				,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
+				
+			});		
+		this.canvas.add(this.item.pendant);
+
+		
 	}
 
 	render()
