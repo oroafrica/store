@@ -121,7 +121,7 @@ export class Store
 		fabric.Image.fromURL(res.chain($(this.user.alloy).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.chainWidth);
-			im.set({left:this.item.bounds.left+this.item.bounds.width+3,top:-140,flipX:true,objectCaching:false,selectable:false});
+			im.set({left:this.item.bounds.left+this.item.bounds.width+3,top:this.con.suffixMap($(this.user.accent).prop("selectedIndex"),$(this.user.motif).prop("selectedIndex")),flipX:true,objectCaching:false,selectable:false});
 			if(this.allfix !== "") this.canvas.add(im);
 		});
 		
