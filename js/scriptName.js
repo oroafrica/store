@@ -3,12 +3,13 @@ import {config, inputs} from "./nameConfigure.js";
 
 export class Store
 {
-	constructor()
+	constructor(myStyle)
 	{
 		//boolean
 		this.dev=true;
 		this.renderBounds=true;
-		this.canvas = new fabric.Canvas('canvas',{backgroundColor:"rgba(231,245,249,0.8)",width:config.cname.cw,height:config.cname.ch,objectCaching:false,hoverCursor:"pointer"});
+		this.con = config[myStyle]; 
+		this.canvas = new fabric.Canvas('canvas',{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
 		this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
 	    this.infixFn = (a)=> {return (a.length > 1) ? a.substring(1,a.length) : "";};
@@ -47,13 +48,25 @@ export class Store
 
 	setBounds()
 	{	
-		this.item.pendant =  new fabric.Text(this.allfix,{fontFamily:config.cname.fontName,fontSize:config.cname.fontSize,fill:"#b4b4b4",objectCaching:false});		
+		this.item.pendant =  new fabric.Text(this.allfix,{fontFamily:this.con.fontName,fontSize:this.con.fontSize,fill:"#b4b4b4",objectCaching:false});		
 		this.canvas.add(this.item.pendant);
 		this.item.pendant.center();
 		this.item.bounds = this.item.pendant.getBoundingRect();
-		//if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
+		if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
 	}
 	
+	drawRegion()
+	{
+		let aBox, bBox, cBox;
+		aBox = new fabric.Rect();
+
+		bBox = new fabric.Rect(this.item.bounds);
+			bBox.stroke="#f00";
+			bBox.strokeWidth=0.25;
+
+		cBox = new fabric.Rect();
+	}
+
 	draw()
 	{
 		this.canvas.clear();
