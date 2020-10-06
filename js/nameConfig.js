@@ -18,7 +18,7 @@ global:{screen:"rgba(231,245,249,0.8)"}
 		return (accent === 0) ? Object.values(n)[motif] : Object.values(n)[motif+4];
 	}
 	,accentMap:(z)=>{ let y = z.left+z.width;
-	return {x:{0:0, 1:0, 2:0, 3:0, 4:122+14,5:119+14,6:117+14,7:115+14},y:{0:0, 1:0, 2:0, 3:0, 4:(y-15+14),5:(y-22+14),6:(y-17+14),7:(y-25+14)}}
+	return {y:{0:0, 1:0, 2:0, 3:0, 4:122+14,5:119+14,6:117+14,7:115+14},x:{0:0, 1:0, 2:0, 3:0, 4:(y-15+14),5:(y-22+14),6:(y-17+14),7:(y-25+14)}}
 	}
 }
 ,mname:{fontName:"mname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
