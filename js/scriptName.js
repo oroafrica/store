@@ -38,7 +38,7 @@ export class Store
 
 	getUserInput()
 	{
-		let a = this.user.txt1;
+		let a = $(this.user.txt1).val();
 		if(a.substring(0,1).match(/^[\&|\-]/g) || a === "" || a === "Enteryournamehere") return;
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.suffixFn(this.user.motif.prop("selectedIndex")) : this.suffixFn(this.user.motif.prop("selectedIndex") + 4);
