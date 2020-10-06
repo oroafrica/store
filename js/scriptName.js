@@ -103,8 +103,8 @@ export class Store
 				fontFamily:this.con.fontName
 				,fontSize:this.con.fontSize
 				,fill:res.alloy($(this.user.alloy).prop("selectedIndex"))
-				,left:this.item.left
-				,top:this.item.top
+				,left:this.item.bounds.left
+				,top:this.item.bounds.top
 				,selectable:false
 				//,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
 				
