@@ -105,7 +105,8 @@ export class Store
 				,fill:res.alloy($(this.user.alloy).prop("selectedIndex"))
 				,left:this.item.left
 				,top:this.item.top
-				,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
+				,selectable:false
+				//,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
 				
 			});		
 		this.canvas.add(this.item.pendant);
