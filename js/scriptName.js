@@ -8,7 +8,7 @@ export class Store
 		//boolean
 		this.dev=true;
 		this.renderBounds=true;
-		this.canvas = new fabric.Canvas('canvas',{backgroundColor:"rgba(231,245,249,0.8)",width:config.cname.cw,height:config.cname.ch,objectCaching:false});
+		this.canvas = new fabric.Canvas('canvas',{backgroundColor:"rgba(231,245,249,0.8)",width:config.cname.cw,height:config.cname.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
 		this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
 	    this.infixFn = (a)=> {return (a.length > 1) ? a.substring(1,a.length) : "";};
@@ -57,7 +57,7 @@ export class Store
 	draw()
 	{
 		this.canvas.clear();
-		//this.canvas.set({backgroundColor:config.global.screen,hoverCursor:"pointer",width:config.cname.cw,height:config.cname.ch,objectCaching:false});
+		this.canvas.set({backgroundColor:config.global.screen});
 		this.getUserInput();
 		this.setBounds();
 	}
