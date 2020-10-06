@@ -51,13 +51,13 @@ export class Store
 		this.canvas.add(this.item.pendant);
 		this.item.pendant.center();
 		this.item.bounds = this.item.pendant.getBoundingRect();
-		if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
+		//if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
 	}
 	
 	draw()
 	{
-		this.canvas.clear();
-		this.canvas.set({backgroundColor:config.global.screen,hoverCursor:"pointer",width:config.cname.cw,height:config.cname.ch,objectCaching:false});
+		//this.canvas.clear();
+		//this.canvas.set({backgroundColor:config.global.screen,hoverCursor:"pointer",width:config.cname.cw,height:config.cname.ch,objectCaching:false});
 		this.getUserInput();
 		this.setBounds();
 	}
