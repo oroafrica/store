@@ -106,10 +106,18 @@ export class Store
 				,left:this.item.bounds.left
 				,top:this.item.bounds.top
 				,selectable:false
-				,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
+				,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))} -1 -1 0`
 				
 			});		
 		this.canvas.add(this.item.pendant);
+
+		fabric.Image.fromURL(res.chain($(this.user.alloy).prop("selectedIndex")),(im)=>
+		{
+			this.item.chainLeft = im;
+			im.scaleToWidth(this.con.chainWidth);
+			im.set({left:this.item.bounds.left,top:-100,objectCaching:false,selectable:false});
+			if(this.allfix !== "") this.canvas.add(im);
+		});
 
 		
 	}
