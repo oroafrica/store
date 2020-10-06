@@ -31,7 +31,7 @@ export class Store
 			,motif:$(this.user.motif).prop("selectedIndex")
 			,accent:$(this.user.accent).prop("selectedIndex")
 			,bounds:this.item.bounds
-			
+			,allfix:this.allfix
 		}
 		this.msg(JSON.stringify(report));
 	}
@@ -47,7 +47,7 @@ export class Store
 
 	setBounds()
 	{	
-		this.item.pendant =  new fabric.Text(this.allfix,{fontFamily:config.cname.fontName,fontSize:config.cname.fontSize,fill:"#b4b4b4",objectCaching:false});		
+		this.item.pendant =  new fabric.Text("Angelina",{fontFamily:config.cname.fontName,fontSize:config.cname.fontSize,fill:"#b4b4b4",objectCaching:false});		
 		this.canvas.add(this.item.pendant);
 		this.item.pendant.center();
 		this.item.bounds = this.item.pendant.getBoundingRect();
