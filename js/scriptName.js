@@ -8,7 +8,7 @@ export class Store
 		//boolean
 		this.dev=true;
 		this.renderBounds=true;
-		this.con = config[myStyle.tolowerCase()];  
+		this.con = config[myStyle.toLowerCase()];  
 		this.canvas = new fabric.Canvas('canvas',{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
 		this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
