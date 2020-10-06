@@ -106,7 +106,7 @@ export class Store
 				,left:this.item.bounds.left
 				,top:this.item.bounds.top
 				,selectable:false
-				//,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
+				,shadow: `${res.shadow($(this.user.alloy).prop("selectedIndex"))}`
 				
 			});		
 		this.canvas.add(this.item.pendant);
