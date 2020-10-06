@@ -7,6 +7,7 @@ export class Store
 	{
 		//boolean
 		this.dev=true;
+		this.renderBounds=true;
 		this.canvas = new fabric.Canvas('canvas',{backgroundColor:"rgba(231,245,249,0.8)",width:config.global.cw,height:config.global.ch,objectCaching:false});
 		this.user = inputs();
 		this.prefix = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
@@ -34,12 +35,13 @@ export class Store
 		}
 		this.msg(JSON.stringify(report));
 	}
-	setBounds(ok)
+	setBounds()
 	{	
 		this.item.pendant =  new fabric.Text("Angelina",{fontFamily:"cname",fontSize:35,fill:"#0f0",objectCaching:false});		
 		this.canvas.add(this.item.pendant);
 		this.item.pendant.center();
 		this.item.bounds = this.item.pendant.getBoundingRect();
+		if(this.renderBounds){this.canvas.remove(this.item.pendant)};
 	}
 	
 	draw()
