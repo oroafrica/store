@@ -136,12 +136,12 @@ export class Store
 		fabric.Image.fromURL(res.accent($(this.user.accent).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.gemSize);
-			im.set({left:this.gemMap().x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
+			im.set({left:this.con.accentMap(this.item.bounds).x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
 			,shadow:"rgba(0,0,0,1) 0 0 2"});
 			if(this.allfix !== "") 
 			{
 				this.canvas.add(im);
-				im.animate("angle",720,
+				im.animate("angle",360,
 				{from:0,duration:3600,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
