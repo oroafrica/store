@@ -29,6 +29,7 @@ export class Store
 			,alloy:$(this.user.alloy).prop("selectedIndex")
 			,motif:$(this.user.motif).prop("selectedIndex")
 			,accent:$(this.user.accent).prop("selectedIndex")
+			,bounds:this.item.bounds
 			
 		}
 		this.msg(JSON.stringify(report));
