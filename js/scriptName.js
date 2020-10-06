@@ -1,5 +1,5 @@
 import {res} from "./resources.js";
-import {config, inputs} from "./nameConfigure.js";
+import {config, inputs} from "./nameConfig.js";
 
 export class Store
 {
