@@ -114,14 +114,14 @@ export class Store
 		fabric.Image.fromURL(res.chain($(this.user.alloy).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.chainWidth);
-			im.set({left:this.item.bounds.left-this.con.chainWidth-3,top:-80,objectCaching:false,selectable:false});
+			im.set({left:this.item.bounds.left-this.con.chainWidth-3,top:-120,objectCaching:false,selectable:false});
 			if(this.allfix !== "") this.canvas.add(im);
 		});
 
 		fabric.Image.fromURL(res.chain($(this.user.alloy).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.chainWidth);
-			im.set({left:this.item.bounds.left+this.state.item.width+3,top:-80,objectCaching:false,flipX:true,selectable:false});
+			im.set({left:this.item.bounds.left+this.con.chainWidth+3,top:-100,objectCaching:false,flipX:true,selectable:false});
 			if(this.allfix !== "") this.canvas.add(im);
 		});
 		
