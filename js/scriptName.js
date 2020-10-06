@@ -8,7 +8,7 @@ export class Store
 		//boolean
 		this.dev=true;
 		this.renderBounds=true;
-		this.con = config[myStyle]; 
+		this.con = config[myStyle.tolowerCase()];  
 		this.canvas = new fabric.Canvas('canvas',{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
 		this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
@@ -33,6 +33,7 @@ export class Store
 			,accent:$(this.user.accent).prop("selectedIndex")
 			,bounds:this.item.bounds
 			,allfix:this.allfix
+			,config:this.con
 		}
 		this.msg(JSON.stringify(report));
 	}
@@ -55,16 +56,37 @@ export class Store
 		if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
 	}
 	
-	drawRegion()
+	drawRegion(bnd)
 	{
 		let aBox, bBox, cBox;
-		aBox = new fabric.Rect();
+		aBox = new fabric.Rect({
+			left:bnd.left - this.con.chainWidth
+			,top:bnd.top - this.con.chainWidth
+			,width:this.con.chainWidth
+			,height:this.con.chainWidth
+			,selectable:false
+			,fill:""
+			,stroke:"#f00"
+			,strokeWidth:0.25
+		});
 
 		bBox = new fabric.Rect(this.item.bounds);
-			bBox.stroke="#f00";
+			bBox.stroke="#0f0";
+			bBox.fill="";
 			bBox.strokeWidth=0.25;
 
-		cBox = new fabric.Rect();
+		cBox = new fabric.Rect({
+			left:bnd.width + bnd.left
+			,top:bnd.top - this.con.chainWidth
+			,width:this.con.chainWidth
+			,height:this.con.chainWidth
+			,selectable:false
+			,fill:""
+			,stroke:"#00f"
+			,strokeWidth:0.25
+		});
+
+		this.canvas.add(aBox).add(bBox).add(cBox);
 	}
 
 	draw()
@@ -73,6 +95,7 @@ export class Store
 		this.canvas.set({backgroundColor:config.global.screen});
 		this.getUserInput();
 		this.setBounds();
+		this.drawRegion(this.item.bounds);
 	}
 
 	render()

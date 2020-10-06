@@ -1,8 +1,8 @@
 export const config={
-global:{screen:"rgba(231,245,249,0.8)",chainWidth:240}
-,bname:{fontName:"bname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250}
-,cname:{fontName:"cname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250}
-,mname:{fontName:"mname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250}
+global:{screen:"rgba(231,245,249,0.8)"}
+,bname:{fontName:"bname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
+,cname:{fontName:"cname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
+,mname:{fontName:"mname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
 }
 
 export function inputs()
