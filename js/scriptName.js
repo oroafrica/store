@@ -35,13 +35,18 @@ export class Store
 		}
 		this.msg(JSON.stringify(report));
 	}
+
+	getUserInput()
+	{
+
+	}
 	setBounds()
 	{	
-		this.item.pendant =  new fabric.Text("Angelina",{fontFamily:"cname",fontSize:35,fill:"#0f0",objectCaching:false});		
+		this.item.pendant =  new fabric.Text("Angelina",{fontFamily:config.cname.fontName,fontSize:config.cname.fontSize,fill:res.alloy(2),objectCaching:false});		
 		this.canvas.add(this.item.pendant);
 		this.item.pendant.center();
 		this.item.bounds = this.item.pendant.getBoundingRect();
-		if(this.renderBounds){this.canvas.remove(this.item.pendant)};
+		if(!this.renderBounds){this.canvas.remove(this.item.pendant)};
 	}
 	
 	draw()
