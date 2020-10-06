@@ -128,7 +128,7 @@ export class Store
 		fabric.Image.fromURL(res.accent($(this.user.accent).prop("selectedIndex")),(im)=>
 		{
 			im.scaleToWidth(this.con.gemSize);
-			im.set({left:100,top:50,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
+			im.set({left:100,top:150,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
 			,shadow:"rgba(0,0,0,1) 0 0 2"});
 			if(this.allfix !== "") 
 			{
