@@ -56,6 +56,9 @@ export class Store
 	
 	draw()
 	{
+		this.canvas.clear();
+		this.canvas.set({backgroundColor:config.global.screen,hoverCursor:"pointer",width:config.cname.cw,height:config.cname.ch,objectCaching:false});
+		this.getUserInput();
 		this.setBounds();
 	}
 
