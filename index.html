@@ -49,14 +49,14 @@
 			</select>
 		</div>
 		
-	<p id="h" class="fixed-bottom mb-5 invisible" style="font-family:'cname'">&nbsp;</p>
+	<!-- <p id="h" class="fixed-bottom mb-5 invisible" style="font-family:'cname'">&nbsp;</p> -->
 	</div>
 
 
 
 <script >
-	var fonts = [new FontFaceObserver('cname')];
-	Promise.all(fonts).then(()=>{console.log('fonts loaded');});
+	var fonts = new FontFaceObserver('cname');
+	Promise.all([fonts.load()]).then(()=> {console.log('CNAME have loaded');});
 </script>
 
 <script type="module" >
