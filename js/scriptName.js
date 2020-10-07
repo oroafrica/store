@@ -5,7 +5,7 @@ export class Store
 {
 	constructor(myStyle)
 	{
-		this.dev=false;
+		this.dev=true;
 		this.renderBounds=false;
 		this.con = config[myStyle.toLowerCase()];  
 		this.canvas = new fabric.Canvas(config.global.canvasId,{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
