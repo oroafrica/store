@@ -93,10 +93,10 @@ export class Store
 	{
 		let radius = this.con.gemRadius; 
 		let z = this.item.bounds.width+this.item.bounds.left;
-		let gx = this.con.accentMap(this.item.bounds).y; //{0:0, 1:0, 2:0, 3:0, 4:122+radius,5:119+radius,6:117+radius,7:115+radius};
-		let gy = this.con.accentMap(this.item.bounds).x; //{0:0, 1:0, 2:0, 3:0, 4:(z-15+radius),5:(z-22+radius),6:(z-17+radius),7:(z-25+radius)};
+		let gx = this.con.accentMap(this.item.bounds).x; //{0:0, 1:0, 2:0, 3:0, 4:(z-15+radius),5:(z-22+radius),6:(z-17+radius),7:(z-25+radius)};
+		let gy = this.con.accentMap(this.item.bounds).y; //{0:0, 1:0, 2:0, 3:0, 4:122+radius,5:119+radius,6:117+radius,7:115+radius};
 		let tg = $(this.user.motif).prop("selectedIndex");
-		return ($(this.user.accent).prop("selectedIndex") === 0) ? {y:Object.values(gx)[tg],x:Object.values(gy)[tg]} : {y:Object.values(gx)[tg+4],x:Object.values(gy)[tg+4]};
+		return ($(this.user.accent).prop("selectedIndex") === 0) ? {y:Object.values(gy)[tg],x:Object.values(gx)[tg]} : {y:Object.values(gy)[tg+4],x:Object.values(gx)[tg+4]};
 	}
 	draw()
 	{
