@@ -1,5 +1,5 @@
 export const config={
-global:{screen:"rgba(231,245,249,0.8)"}
+global:{canvasId:"canvas",screen:"rgba(231,245,249,0.8)"}
 ,bname:{fontName:"bname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
 ,cname:
 {
@@ -17,9 +17,10 @@ global:{screen:"rgba(231,245,249,0.8)"}
 		let n = {0:-127,1:-121,2:-127,3:-120,4:-121,5:-121,6:-127,7:-120};
 		return (accent === 0) ? Object.values(n)[motif] : Object.values(n)[motif+4];
 	}
-	,accentMap:(z)=>{ let a = z.left+z.width;
-	return {x:{0:0, 1:0, 2:0, 3:0, 4:(a-8),5:(a-15),6:(a-10),7:(a-18)}
-	,y:{0:0, 1:0, 2:0, 3:0, 4:129,5:126,6:124,7:122}}
+	,accentMap:(bounds,i)=>{ let a = bounds.left+bounds.width;
+	return {
+		x:Object.values({0:0, 1:0, 2:0, 3:0, 4:(a-8),5:(a-15),6:(a-10),7:(a-18)})[i]
+		,y:Object.values({0:0, 1:0, 2:0, 3:0, 4:129,5:126,6:124,7:122})[i]}
 	}
 }
 ,mname:{fontName:"mname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}

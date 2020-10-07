@@ -9,11 +9,11 @@ export class Store
 		this.dev=true;
 		this.renderBounds=false;
 		this.con = config[myStyle.toLowerCase()];  
-		this.canvas = new fabric.Canvas('canvas',{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
+		this.canvas = new fabric.Canvas(config.global.canvasId,{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
-		this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
-	    this.infixFn = (a)=> {return (a.length > 1) ? a.substring(1,a.length) : "";};
-        this.suffixFn = (a)=> {return String.fromCharCode(Object.values({0:61, 1:60091, 2:60040, 3:60123, 4:60062,5:60093,6:60041,7:60125})[a]);};
+this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
+this.infixFn = (a)=> {return (a.length > 1) ? a.substring(1,a.length) : "";};
+this.suffixFn = (a)=> {return String.fromCharCode(Object.values({0:61, 1:60091, 2:60040, 3:60123, 4:60062,5:60093,6:60041,7:60125})[a]);};
 	    this.regex = (a)=> {return a.replace(/[\(\)\[\]:;#@\^\|\?\",<>\!\\_=\+\*~`\.\{\}']/g,"");};
 	    this.allfix = "";
 		this.item={chainLeft:"",chainRight:"",bounds:"",pendant:""};
@@ -91,12 +91,11 @@ export class Store
 
 	gemMap()
 	{
-		let radius = this.con.gemRadius; 
-		let z = this.item.bounds.width+this.item.bounds.left;
-		let gx = this.con.accentMap(this.item.bounds).x; //{0:0, 1:0, 2:0, 3:0, 4:(z-15+radius),5:(z-22+radius),6:(z-17+radius),7:(z-25+radius)};
-		let gy = this.con.accentMap(this.item.bounds).y; //{0:0, 1:0, 2:0, 3:0, 4:122+radius,5:119+radius,6:117+radius,7:115+radius};
 		let tg = $(this.user.motif).prop("selectedIndex");
-		return ($(this.user.accent).prop("selectedIndex") === 0) ? {x:Object.values(gx)[tg],y:Object.values(gy)[tg]} : {x:Object.values(gx)[tg+4],y:Object.values(gy)[tg+4]};
+		let plain = this.con.accentMap(this.item.bounds,tg);
+		let accent = this.con.accentMap(this.item.bounds,tg+4);
+		return ($(this.user.accent).prop("selectedIndex") === 0) ? {x:plain.x,y:plain.y} : {x:accent.x,y:accent.y};
+		
 	}
 	draw()
 	{
@@ -134,7 +133,7 @@ export class Store
 		});
 		
 		fabric.Image.fromURL(res.accent($(this.user.accent).prop("selectedIndex")),(im)=>
-		{this.msg(this.con.accentMap(this.item.bounds).x);
+		{
 			im.scaleToWidth(this.con.gemSize);
 			im.set({left:this.gemMap().x,top:this.gemMap().y,originX:"center",originY:"center",objectCaching:false,noScaleCache:false,selectable:false
 			,shadow:"rgba(0,0,0,1) 0 0 2"});
@@ -142,7 +141,7 @@ export class Store
 			{
 				this.canvas.add(im);
 				im.animate("angle",360,
-				{from:0,duration:3600,easing:fabric.util.ease.easeOutBounce,onChange:this.canvas.renderAll.bind(this.canvas)});
+				{from:0,duration:7200,easing:fabric.util.ease.easeIn,onChange:this.canvas.renderAll.bind(this.canvas)});
 			}
 		});
 
