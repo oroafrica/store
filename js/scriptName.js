@@ -42,7 +42,7 @@ export class Store
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
 this.msg("test a: "+ (typeof b)+" "+b);
-		//b = (b.match(/[0-9]/g)) ? b : 
+		b = (b !== "") ? b : "=";
 		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
