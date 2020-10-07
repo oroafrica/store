@@ -41,7 +41,7 @@ export class Store
 		if(a.substring(0,1).match(/^[\&|\-]/g) || a === "" || a === "Enteryournamehere" || a === "Enter your name here") return;
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
-		this.msg("test a: "+a);
+		this.msg("test a: "+ (typeof $(this.user.accent)));
 		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
@@ -162,12 +162,14 @@ export class Store
 	render()
 	{	
 		$(document).on("keyup",$(this.user.txt1),(e)=>
-		{this.user = inputs();
+		{	
+			this.user = inputs();
 			this.draw();
 			this.debug();
 		})
 		.on("change",$(this.user.alloy),(e)=>
-		{this.user = inputs();
+		{
+			this.user = inputs();
 			this.draw();
 			this.debug();
 		});
