@@ -48,19 +48,19 @@
 			</select>
 		</div>
 		
-	<p id="h" class="fixed-bottom mb-5 invisible" style="font-family:'bname'">&nbsp;</p>
+	<p id="h" class="fixed-bottom mb-5 invisible" style="font-family:'mname'">&nbsp;</p>
 	</div>
 
 <script src="./js/fontFaceObserver.js" ></script>
 
 <script >
-	var fonts = [new FontFaceObserver('bname')];
+	var fonts = [new FontFaceObserver('mname')];
 	Promise.all(fonts).then(()=>{console.log('fonts loaded');});
 </script>
 
 <script type="module" >
 	import {Store} from "./js/scriptName.js";
-	$(document).ready(new Store("bname").render());
+	$(document).ready(new Store("mname").render());
 </script>
 
 </body>

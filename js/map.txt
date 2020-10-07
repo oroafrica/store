@@ -52,3 +52,4 @@ prefixMap()
 		return ($(this.uAccent).prop("selectedIndex") === 0) ? {y:Object.values(gx)[tg],x:Object.values(gy)[tg]} : {y:Object.values(gx)[tg+4],x:Object.values(gy)[tg+4]};
 	}
 	
+    0:0, 1:0, 2:0, 3:0, 4:131,5:131,6:130,7:128
