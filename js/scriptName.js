@@ -5,15 +5,11 @@ export class Store
 {
 	constructor(myStyle)
 	{
-		//boolean
 		this.dev=true;
 		this.renderBounds=false;
 		this.con = config[myStyle.toLowerCase()];  
 		this.canvas = new fabric.Canvas(config.global.canvasId,{backgroundColor:config.global.screen,width:this.con.cw,height:this.con.ch,objectCaching:false,hoverCursor:"pointer"});
 		this.user = inputs();
-this.prefixFn = (d)=> {return (d.length >= 1) ? String.fromCharCode(d.substring(0,1).charCodeAt(0) + 60000) : "";};
-this.infixFn = (a)=> {return (a.length > 1) ? a.substring(1,a.length) : "";};
-this.suffixFn = (a)=> {return String.fromCharCode(Object.values({0:61, 1:60091, 2:60040, 3:60123, 4:60062,5:60093,6:60041,7:60125})[a]);};
 	    this.regex = (a)=> {return a.replace(/[\(\)\[\]:;#@\^\|\?\",<>\!\\_=\+\*~`\.\{\}']/g,"");};
 	    this.allfix = "";
 		this.item={chainLeft:"",chainRight:"",bounds:"",pendant:""};
@@ -43,8 +39,8 @@ this.suffixFn = (a)=> {return String.fromCharCode(Object.values({0:61, 1:60091, 
 		let a = $(this.user.txt1).val();
 		if(a.substring(0,1).match(/^[\&|\-]/g) || a === "" || a === "Enteryournamehere") return;
 		a = this.regex(a.split(" ").join(""));
-		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.suffixFn($(this.user.motif).prop("selectedIndex")) : this.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
-		this.allfix = (a.length > 0) ? this.prefixFn(a).concat(this.infixFn(a)).concat(b) : ""; 
+		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
+		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
 	setBounds()
