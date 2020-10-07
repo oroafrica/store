@@ -19,7 +19,7 @@ global:{screen:"rgba(231,245,249,0.8)"}
 	}
 	,accentMap:(z)=>{ let a = z.left+z.width;
 	return {x:{0:0, 1:0, 2:0, 3:0, 4:(a-1),5:(a-8),6:(a-3),7:(a-11)}
-	,y:{0:0, 1:0, 2:0, 3:0, 4:136,5:133,6:131,7:129}}
+	,y:{0:0, 1:0, 2:0, 3:0, 4:129,5:126,6:124,7:122}}//{0:0, 1:0, 2:0, 3:0, 4:122+radius,5:119+radius,6:117+radius,7:115+radius};
 	}
 }
 ,mname:{fontName:"mname",fontSize:35,gemSize:14,gemRadius:14/2,pua:60000,cw:420,ch:250,chainWidth:240}
