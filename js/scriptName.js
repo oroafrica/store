@@ -162,12 +162,12 @@ export class Store
 	render()
 	{	
 		$(document).on("keyup",$(this.user.txt1),(e)=>
-		{
+		{this.user = inputs();
 			this.draw();
 			this.debug();
 		})
 		.on("change",$(this.user.alloy),(e)=>
-		{
+		{this.user = inputs();
 			this.draw();
 			this.debug();
 		});
