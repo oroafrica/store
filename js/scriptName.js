@@ -42,6 +42,7 @@ export class Store
 		if(a.substring(0,1).match(/^[\&|\-]/g) || a === "" || a === "Enteryournamehere" || a === "Enter your name here") return;
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
+		b = (jQuery.isEmptyObject(b)) ? "=" : b;
 		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
