@@ -43,6 +43,7 @@ export class Store
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
 		b = (jQuery.isEmptyObject(b)) ? "=" : b;
+		this.msg(jQuery.isEmptyObject(b) + " -- "+$(this.user.accent).prop("selectedIndex") );
 		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
