@@ -44,7 +44,7 @@ export class Store
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
 		// b = ($(this.user.accent).prop("selectedIndex") === "undefined") ? "=" : b;
 		// this.msg(jQuery.isEmptyObject(b) + " -- "+$(this.user.accent).prop("selectedIndex") );
-		this.allfix = (a.length > 0 && $(this.user.accent).prop("selectedIndex") !== "undefined") ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
+		this.allfix = (a.length > 0 && typeof $(this.user.accent).prop("selectedIndex") !== "undefined") ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 
 
