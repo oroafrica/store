@@ -42,10 +42,10 @@ export class Store
 		a = this.regex(a.split(" ").join(""));
 		let b = ($(this.user.accent).prop("selectedIndex") === 0) ? this.con.suffixFn($(this.user.motif).prop("selectedIndex")) : this.con.suffixFn($(this.user.motif).prop("selectedIndex") + 4);
 // this.msg("test a: "+ (typeof b)+" "+b);
- this.msg("test accent: "+ $(this.user.accent).prop("selectedIndex"));
+//  this.msg("test accent: "+ $(this.user.accent).prop("selectedIndex"));
 		// b = (b !== null || b !== "undefined" || b !== "\u0000") ? b : "=";
-		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)) /* .concat(b) */: ""; 
-		// this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
+		// this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)) /* .concat(b) */: ""; 
+		this.allfix = (a.length > 0) ? this.con.prefixFn(a).concat(this.con.infixFn(a)).concat(b) : ""; 
 	}
 	// }
 
