@@ -75,7 +75,9 @@ export function inputs()
 {
 	let user = {};
 	user.txt1 = $("input[title='Enter your name here']");
-		
+	user.alloy = null;	
+	user.motif = null;	
+	user.accent = null;	
 	let tgt = $('select').toArray();
 	$.each(tgt, (index)=> 
 	{
