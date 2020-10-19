@@ -2045,14 +2045,11 @@ CloudZoom = {
 </script>
 
 
-<script >
-	var fonts = new FontFaceObserver('cname');
-	Promise.all([fonts.load()]).then(()=> {console.log('CNAME have loaded');});
-</script>
-
 <script type="module" >
-	import {Store} from "https://oroafrica.github.io/store/js/scriptName.js";
-	$(document).ready(new Store("cname").render());
+	import {Store} from "https://oroafrica.github.io/store/js/scriptName.min.js";
+	let myStyle="mname";
+	new FontFaceObserver(myStyle).load().then(()=> {console.log(`${myStyle} have loaded`);});
+	$(document).ready(new MinStore(myStyle));
 </script>
 
 <script type="text/javascript" src="https://www.memijewellery.com/js/sidebar.js?ver=4.7.4"></script>
