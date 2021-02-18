@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest services</title>
+    <link href="https://www.oroafrica.com/images/logos/1/Icon.jpg" rel="shortcut icon" type="image/jpeg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+         @media print
+        {
+            .sidebar
+            {
+                max-width:300px;
+                margin-left:0px;
+                padding-left: 0px;
+            }
+            .mainbar
+            {
+                min-width: 550px;
+            }
+            .anc{color:black;text-decoration: none;font-style: italic;}
+        }
+        html { scroll-behavior: smooth; } 
+    </style>
+</head>
+<body >
+    <div class="container-fluid">
+        <div class="row p-5 mt-5">
+            <div class="col col-lg-2 mr-4 offset-2 p-3 sidebar" style="background-color:lightgray;" >
+                <div class="d-block w-100 mx-auto text-center mb-5"><img class="img rounded-circle shadow-sm justify-content-center mx-auto" style="width:120px" src="https://i.ibb.co/6bTG5zw/bg.png" alt="bg" /></div>
+                <div class="text-center mb-1 d-block text-secondary"><b>INDEX</b></div>
+                <ul style="color:gray">
+                    <li>
+                        <a class="anc" href="#overview">overview</a>
+                    </li>
+                    <li>
+                        <a href="#prism">prism</a>
+                    </li>
+                    <li>
+                        <a href="#OrderCapturing">order capturing</a>
+                    </li>
+                    <li>
+                        <a href="#finance">finance</a>
+                    </li>
+                    <li>
+                        <a href="#sales">sales</a>
+                    </li>
+                    <li>
+                        <a href="#cost">external cost</a>
+                    </li>
+                    <li>
+                        <a href="#navision">navision</a>
+                    </li>
+                    <li>
+                        <a href="#dataDefinitions">data definitions table</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col col-lg-6 mainbar" style="background-color:#efefef">
+                <div class="p-2 d-block mb-2" style="font-size:35px;">Proposed Navison Web Services.</div>
+                <div class=" p-2" id="overview">
+                    
+                    <h6>Overview</h6>
+                    Proposed objective is to implement a digital workflow that takes into account the various challenges in the order placement process.
+                    This include but not limited to checking stock levels prior to moving to production, apply client specific changes and extend overall validation. 
+                    Standardize the format of imported data from external clients and provide a point of reference for sales, distribution and finance.
+                    With the overal intend to embed the various individual task into a single delegable process.
+                    <h6 class="mt-2" >The process will be devided into three phases</h6>
+                    <span class="d-block">Implementation/Testing of rest services</span>
+                    <span class="d-block"></span>Development of client</span>
+                    <span class="d-block">Payment/Order reconciliation</span>
+                    <h6 class="mt-2">Timeline</h6>
+                    <span class="d-block"> AllOnline: 15 Hours</span>
+                    <span class="d-block"> Orodesign: 3 weeks </span>
+                </div>
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="prism" >
+                    <h6>Prism</h6>
+                    <span class="d-block">Prism will act as middleware to facilitate required processes and hosted on a local server.</span>
+                    <span class="d-block">Encoding UTF-8.</span>
+                    <span class="d-block">Preferred http response format json.</span>
+                </div>
+            
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="OrderCapturing" >
+                    <h6>Order Capturing</h6>
+                    Prism client will be entry point for webservice or excel spreadsheet uploads.
+                    Orders will be pre-processed and assessed prior to uploading to Navision this include payment filtering.
+                    This include but no limited to sold from stock or production orders.
+                </div>
+
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="finance" >
+                    <h6>Finance</h6>
+                    Payment vendor API's will be used to aid in transaction tracking where payment disparaties arise.
+                    Tracking method limited to services exposed exposed by payment vendor.
+                </div>
+
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="sales" >
+                    <h6>Sales</h6>
+                    Quick access to the following:
+                    <span class="d-block">Memi product information.</span> 
+                    <span class="d-block">Query orders by status/sales order.</span>
+                    <span class="d-block">Log request and receive responses eg. previews/translations</span>
+                </div>
+
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="cost" >
+                    <h6>External Cost</h6>
+                    <span class="d-block">AllOnline: R14,925.00 (R995 x 15hrs)</span> 
+                    <span class="d-block">Request: 004498</span> 
+                </div>
+
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="navision" >
+                    <h6>Navision Rest Services</h6>
+                    Required service would entail the following: 
+                    <ul>
+                        <li>Query client information including account status for account payments by account/name</li>
+                        <li>Create new orders based on account number </li>
+                        <li>Create new product code without costing</li>
+                        <li>Query product codes by category/name</li>
+                        <li>Query stock listing from warehouse "0"</li>
+                        <li>Add external document number to ODATA service running on http://193.14.85.14:7548</li>
+                    </ul>
+                </div>
+
+                <div class="border mt-2 mb-2"></div>
+                <div class="" id="dataDefinitions" >
+                    <h6>Retrieve Customer(Including Block Status)</h6>
+                    <ul>
+                        <li><i>source: Oro Africa(Pty)Ltd $Customer</i></li>
+                        <li>Request Method: POST</li>
+                    </ul>
+                    <h6>Create Sales Orders</h6>
+                    <ul>
+                        <li><i>source: Oro Africa(Pty)Ltd $Sales Line, $Sales Header</i></li>
+                        <li>Request Method: PUT</li>
+                    </ul>
+                    <h6>Create Item Code (No Costing)</h6>
+                    <ul>
+                        <li><i>source: OroAfrica(Pty)Ltd $ParentItem</i></li>
+                        <li>Request Method: PUT</li>
+                    </ul>
+                    <h6>Retrieve Item Code</h6>
+                    <ul>
+                        <li><i>source: OroAfrica(Pty)Ltd $Item</i></li>
+                        <li>Request Method: POST</li>
+                    </ul>
+                    <h6>Optional: Check Stock Quantity From Warehouse "0"</h6>
+                    <ul>
+                        <li><i>source: OroAfrica(Pty)Ltd $Unknown</i></li>
+                        <li>Request Method: POST</li>
+                    </ul>
+                    <h6>Optional: Add External Document No (ODATA on 7548)</h6>
+                    <ul>
+                        <li><i>source: OroAfrica(Pty)Ltd $SalesHeader</i></li>
+                        <li>Append existing service</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
